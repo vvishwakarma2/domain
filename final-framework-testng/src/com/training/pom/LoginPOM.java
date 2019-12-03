@@ -13,26 +13,59 @@ public class LoginPOM {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(id="login")
-	private WebElement userName; 
 	
-	@FindBy(id="password")
-	private WebElement password;
+	//****************   Identifying elements   ***********************//
 	
-	@FindBy(id="formLogin_submitAuth")
-	private WebElement loginBtn; 
+	@FindBy(xpath="//a[@class='sign-in']")
+	private WebElement ClickLoginURL; 
 	
-	public void sendUserName(String userName) {
-		this.userName.clear();
-		this.userName.sendKeys(userName);
+	@FindBy(id="user_login")
+	private WebElement Username; 
+	
+	@FindBy(id="user_pass")
+	private WebElement Password;
+	
+	@FindBy(xpath="//input[@value='Sign In']")
+	private WebElement SubmitButton;
+	
+	@FindBy(xpath="//a[contains(text(),'Lost Your')]")
+	private WebElement ForgotPasswordLink;
+	
+	@FindBy(id="user_login")
+	private WebElement ConfirmEmail;
+	
+	@FindBy(xpath="//input[@class='lostpassword-button']")
+	private WebElement ResetPwdButton;
+	
+	//*****************     Declaring Methods   ***********************//
+	
+	public void ClickLoginURL() {
+		this.ClickLoginURL.click();
+	}
+
+	public void Username(String Username) {
+		this.Username.sendKeys(Username);
 	}
 	
-	public void sendPassword(String password) {
-		this.password.clear(); 
-		this.password.sendKeys(password); 
+	public void Password(String Password) {
+		this.Password.sendKeys(Password);
 	}
 	
-	public void clickLoginBtn() {
-		this.loginBtn.click(); 
+	public void SubmitButton() {
+		this.SubmitButton.click();
+	}
+	
+	//Lost your password URL method
+	public void ForgotPasswordLink() {
+		this.ForgotPasswordLink.click();
+	}
+	
+	//Email confirmation
+	public void ConfirmEmail(String ConfirmEmail) {
+		this.ConfirmEmail.sendKeys(ConfirmEmail);
+	}
+	
+	public void ResetPwdButton() {
+		this.ResetPwdButton.click();
 	}
 }
